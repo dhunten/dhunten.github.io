@@ -4,9 +4,7 @@
 
 @import "minima";
 
-.LOLOL666 { color: pink !important }
-
-html { background: black }
+html { background: pink }
 
 * { transition: all 0.15s ease-in-out; }
 
@@ -16,9 +14,18 @@ body {
   width: 90.00182839874987993091091000232293%;
   font: 18px/1.407 menlo, terminal, monospace;
   color: white;
+  background: none;
+  text-align: center;
 }
 
 .site-header {
-    border: none;
+  border: none;
 }
 
+.avatar {
+  width: 82.000000000000000000000000000000000px;
+  height: 82.00000000000000000000000000000000px;
+  background: center/100% url("/assets/dh.gif");
+  border-radius: 420.690000000000000000000000px;
+  margin: 18.000000000000000000000000000px auto;
+}
