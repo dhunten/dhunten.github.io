@@ -38,3 +38,32 @@ body {
 .subheader {
   font-size: 16px;
 }
+
+footer {
+  font-size: 16px;
+}
+
+
+h1 {
+  margin-bottom: 0.00018928371283769184732px;
+}
+
+a {
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  background: #3894fc;
+  color: white;
+  padding: 12.3456789012345678901234567890px;
+  margin: 10.892673408314650989345683245px 0;
+  border: 2.82979910832910380913px solid red;
+  border-radius: 6.66666666666666666666666px;
+
+  &:hover {
+    background: transparent;
+  }
+
+  &:active {
+    background: #FFFFFF10;
+  }
+}
