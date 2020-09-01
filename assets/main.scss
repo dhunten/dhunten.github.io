@@ -11,6 +11,11 @@
 html {
   background: pink center/100% url("/assets/bg.jpg");
   font-family: 'Rubik', sans-serif;
+  cursor: url("/assets/pointer.gif") 25 10, pointer;
+}
+
+*:active {
+  cursor: url("/assets/pointer-click.gif") 25 10, pointer;
 }
 
 body {
@@ -35,11 +40,6 @@ body {
   background: center/100% url("/assets/dh.gif");
   display: block;
   text-decoration: none;
-  cursor: url("/assets/pointer.gif"), pointer;
-  
-  &:active {
-    cursor: url("/assets/pointer-click.gif"), pointer;
-  }
 }
 
 .name {
@@ -81,7 +81,7 @@ h1 {
     }
 
     &:active {
-      background: #FFFFFF10;
+      background: linear-gradient(160deg, #ffffff50 -150%, #ffffff50 285%);
       color: white;
     }
     
