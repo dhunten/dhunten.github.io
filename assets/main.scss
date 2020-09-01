@@ -73,12 +73,12 @@ h1 {
     color: white;
     background: linear-gradient(160deg, #FF00E5 -150%, #FF0000 285%);
     border: 1px solid #D6005B;
+    cursor: url("/assets/pointer.gif") 25 10, pointer;
 
     &:hover {
       background: linear-gradient(160deg, #ffffff33 -150%, #ffffff33 285%);
       text-decoration: none;
       color: white;
-      cursor: url("/assets/pointer.gif") 25 10, pointer;
     }
 
     &:active {
