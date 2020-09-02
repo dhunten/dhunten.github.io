@@ -10,10 +10,10 @@ google_analytics: UA-29682729-1
 
 url: dhunten.com
 author: derek
-tagline: Beep boop ha, ha.
-description: Beep boop ha, ha.
+tagline: nil
+description: The wide world of DH contents, portfolios, equities, and full capitalistic purposes.
 logo: /assets/dh.gif
-title: hmmmm
+title: Derek Hunten, Intergalactic Gloor Mazoof
 
 defaults:
   - scope:
