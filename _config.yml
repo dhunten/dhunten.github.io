@@ -11,3 +11,23 @@ google_analytics: UA-29682729-1
 url: dhunten.com
 author: derek
 tagline: Beep boop ha, ha.
+description: Beep boop ha, ha.
+logo: /assets/dh.gif
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      image: /assets/dh.gif
+
+social:
+  name: Derek Hunten
+  links:
+    - https://twitter.com/dhunten
+    - https://www.linkedin.com/in/dhunten/
+    - https://dribbble.com/dhunten
+    - https://instagram.com/urmim
+    - https://github.com/dhunten
+    - https://venmo.com/use0348
+    - https://commerce.coinbase.com/checkout/c91c4688-98c2-4558-a9ae-97fd0a07989f
+    
