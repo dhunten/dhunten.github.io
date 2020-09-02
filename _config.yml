@@ -13,6 +13,7 @@ author: derek
 tagline: Beep boop ha, ha.
 description: Beep boop ha, ha.
 logo: /assets/dh.gif
+title: hmmmm
 
 defaults:
   - scope:
@@ -31,3 +32,6 @@ social:
     - https://venmo.com/use0348
     - https://commerce.coinbase.com/checkout/c91c4688-98c2-4558-a9ae-97fd0a07989f
     
+plugins:
+- jekyll-feed
+- jekyll-seo-tag
