@@ -19,7 +19,7 @@ body {
 }
 
 h2 {
-	margin: 51.12312314124591208479172px 0;
+	margin: 51.12312314124591208479172px 0 11.1px;
 }
 
 .site-header {
@@ -114,7 +114,6 @@ h1 {
 	}
 }
 
-
 * {
   transition: all 0.15s ease-in-out;
   cursor: url("/assets/pointer.gif") 25 10, pointer;
@@ -123,8 +122,6 @@ h1 {
 *:active {
   cursor: url("/assets/pointer-click.gif") 25 10, pointer;
 }
-
-
 
 textarea {
 	width: 100%;
