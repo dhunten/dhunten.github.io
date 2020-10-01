@@ -1,10 +1,12 @@
+---
 layout: page
 title: "Emoji pack for Discord and Slack"
 date: 2020-10-01 3:15:07 -0000
+post_url:
 categories: gif
+---
 
-# Emoji pack for Discord and Slack
-I've converted some of my GIFs to a smaller, square size for easy importing into your chat app of choice.
+I've converted some of my GIFs to a smaller, square size for easy importing into your chat app of choice:
 
 ![](/assets/emotes/coffee-small.gif)
 ![](/assets/emotes/haha.gif)
