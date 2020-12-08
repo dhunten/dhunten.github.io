@@ -5,14 +5,43 @@ author: derek
 canonical_url: 'https://dhunten.com/'
 ---
 
+<script>
+const decipher = salt => {
+		const textToChars = text => text.split('').map(c => c.charCodeAt(0));
+		const applySaltToChar = code => textToChars(salt).reduce((a,b) => a ^ b, code);
+		return encoded => encoded.match(/.{1,2}/g)
+				.map(hex => parseInt(hex, 16))
+				.map(applySaltToChar)
+				.map(charCode => String.fromCharCode(charCode))
+				.join('');
+}
+
+function top10quiz() {
+	let pass = prompt()
+	const myDecipher = decipher(pass)
+	let decrypt = myDecipher("1e0202064c5959121e03180213185815191b59051e1e1e")
+	if (decrypt[0] == 'h') {
+		window.location.href = decrypt
+	}
+	else {
+		alert("Bzz. Wrongo.")
+	}
+}
+</script>
+
+
 <p>
 	<a href='https://blmstickerpack.square.site/'>Protest ✊🏾 Stickers</a>
   <a href='https://giphy.com/dhunten'>😘 GIFs 😘</a>
   <a href='https://theoneshirt.square.site/'>👕 Buy The One Shirt 👕</a>
   <a href='./referral.html'>💸 $5 Referral 💸</a>
   <a href='https://www.etsy.com/shop/TdchCrafts'>📐 Craft Goods 📐</a>
-	<a href='./about.html'>👀 About 👀</a>
   <a href='mailto:dhunten@pm.me'>💌 Contact 💌</a>
+	<a href="/assets/derek-hunten-resume.pdf">📋 Resume 📋</a>
+	<a href="https://www.figma.com/proto/dGEW7ExwObwEsIwO4BUzex/Resume?node-id=32%3A19&viewport=334%2C25%2C0.4724857807159424&scaling=scale-down-width&hide-ui=1">✨ Resume for designers ✨</a>
+	<a onclick="top10quiz()">🔒 Portfolio 🔒</a>
+	<a href='/assets/emotes.zip'>📥 Download emoji pack 📥</a>
+
 
 	<img class="sparkle" src="https://media.giphy.com/media/Kxz4hONFH6MkVlj3mS/giphy.gif" style="top: -80px; left: -30px;">
 	<img class="sparkle" src="https://media.giphy.com/media/j6Y7v3dAVB1UNME2cc/giphy.gif" style="top: 100px; right: -40px;">
