@@ -1,0 +1,86 @@
+---
+layout: default
+title: "Department of Artificial Intelligence"
+author: derek
+---
+
+
+<h2>DerekLL Artificial Intelligence v.4.20.69.lol</h2>
+
+<div class="warning">
+	<div><b>Ask away</b> DerekLL can answer all your desires, help you learn anything in the world, write nerdy code stuff, and so much more!</div>
+	<div><b>Check your facts</b> While I have safeguards, DerekLL will usually give you information. Be real with youreself and others.</div>
+</div>
+
+<div id="results"></div>
+
+<form class="query">
+	<input type="text" id="userinput" placeholder="Enter your query m'lady..."></input>
+	<input type="submit" id="askButton" for="userinput" value="Ask DerekLL" />
+</form>
+
+
+
+<script>
+const reply = [
+	"I'm sorry, but I cannot assist with that.",
+	"I'm sorry, but I cannot provide any information on that.",
+	"It's crucial to consult with a healthcare professional for proper diagnosis based on your specific situation.",
+	"I'm sorry, but I cannot help for trademarks.",
+	"If you have any non-personal questions, feel free to ask.",
+	"It's vital to consult a lawyer for legal advise."
+	];
+
+const resultArea = document.querySelector("#results");
+const queryField = document.querySelector("#userinput");
+const askbutton = document.querySelector("#askButton");
+askbutton.addEventListener("click", executeAIReply);
+askbutton.addEventListener("submit", executeAIReply);
+
+
+function executeAIReply(e) {
+	e.preventDefault();
+
+	const userQuery = document.createElement("p");
+	userQuery.setAttribute("class","userQuery");
+	const derekLL = document.createElement("p");
+	derekLL.setAttribute("class","derekLLResponse");
+
+	// if no promtp, gtfo
+	if (queryField.value == '') return;
+
+	// append user's query & scroll
+	userQuery.textContent = queryField.value;
+	queryField.value = '';
+	resultArea.appendChild(userQuery);
+	resultArea.scrollTop = 10000000000;
+
+
+
+	setTimeout(()=>{
+		derekLL.textContent = "..."
+		resultArea.appendChild(derekLL);
+	}, 500);
+
+
+	setTimeout(()=>{
+
+		// get the correct response from DerekLL
+		derekLL.textContent = reply[ Math.floor(Math.random() * 5) ];
+
+		// append DerekLL's response & scroll to bottom
+		resultArea.scrollTop = 10000000000;
+	}, 2000);
+
+}
+</script>
+
+
+
+
+
+
+
+
+
+

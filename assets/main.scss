@@ -153,3 +153,64 @@ button {
 }
 
 [hidden] { display: none !important; }
+
+
+
+
+
+.warning {
+    display: flex;
+    background: #d62a00bf;
+    padding: 20px;
+    border-radius: 5px;
+    margin: 20px 0;
+    gap: 20px;
+    text-align: left;
+    font-size: 14px;
+}
+.query {
+    display: flex;
+    background: #00000099;
+    padding: 10px;
+    border-radius: 0 0 5px 5px;
+}
+
+#userinput { flex: 4 }
+#askButton { flex: 1; margin: 0 0 0 12px; }
+
+#results {
+    overflow-y: scroll;
+    height: 400px;
+    text-align: left;
+    background: #00000099;
+    padding: 10px;
+    border-radius: 5px 5px 0 0;
+}
+
+.userQuery {
+    margin-top: 20px;
+    padding-left: 50px;
+    background: url("/assets/you.png") no-repeat;
+    background-size: 42px;
+}
+.derekLLResponse {
+    padding-left: 50px;
+    background: url("/assets/derekll.png") no-repeat;
+    background-size: 42px;
+}
+
+.userQuery:before { content: 'You'; }
+.derekLLResponse:before { content: 'DerekLL'; }
+.userQuery:before, .derekLLResponse:before {
+    content: 'DerekLL';
+    display: block;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 6px 0 0;
+}
+
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-thumb {
+    background: #00000024;
+    border-radius: 10px;
+}
