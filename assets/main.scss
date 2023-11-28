@@ -170,9 +170,13 @@ button {
 }
 .query {
     display: flex;
-    background: #00000099;
+    background: black;
     padding: 10px;
     border-radius: 0 0 5px 5px;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    left: 0;
 }
 
 #userinput { flex: 4 }
@@ -180,11 +184,15 @@ button {
 
 #results {
     overflow-y: scroll;
-    height: 400px;
     text-align: left;
-    background: #00000099;
-    padding: 10px;
+    background: black;
+    padding: 10px 10px 40px;
     border-radius: 5px 5px 0 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
 }
 
 .userQuery {
