@@ -160,7 +160,7 @@ button {
 
 .warning {
     display: flex;
-    background: #d62a00;
+    background: #d62a00bf;
     padding: 20px;
     border-radius: 5px;
     margin: 20px 0;
@@ -170,7 +170,7 @@ button {
 }
 .query {
     display: flex;
-    background: #00000024;
+    background: #00000099;
     padding: 10px;
     border-radius: 0 0 5px 5px;
 }
@@ -182,7 +182,7 @@ button {
     overflow-y: scroll;
     height: 400px;
     text-align: left;
-    background: #00000024;
+    background: #00000099;
     padding: 10px;
     border-radius: 5px 5px 0 0;
 }
@@ -190,25 +190,18 @@ button {
 .userQuery {
     margin-top: 20px;
     padding-left: 50px;
-    background: url("./assets/you.png") no-repeat;
+    background: url("/assets/you.png") no-repeat;
     background-size: 42px;
 }
-
-.userQuery:before {
-    content: 'You';
-    display: block;
-    font-size: 16px;
-    font-weight: bold;
-    padding: 6px 0 0;
-}
-
 .derekLLResponse {
     padding-left: 50px;
-    background: url("./assets/derekll.png") no-repeat;
+    background: url("/assets/derekll.png") no-repeat;
     background-size: 42px;
 }
 
-.derekLLResponse:before {
+.userQuery:before { content: 'You'; }
+.derekLLResponse:before { content: 'DerekLL'; }
+.userQuery:before, .derekLLResponse:before {
     content: 'DerekLL';
     display: block;
     font-size: 16px;
@@ -216,15 +209,7 @@ button {
     padding: 6px 0 0;
 }
 
-
-::-webkit-scrollbar {
-    width: 6px;
-}
- 
-::-webkit-scrollbar-track {
-
-}
- 
+::-webkit-scrollbar { width: 6px; }
 ::-webkit-scrollbar-thumb {
     background: #00000024;
     border-radius: 10px;
