@@ -4,9 +4,6 @@ title: "Department of Artificial Intelligence"
 author: derek
 ---
 
-
-
-
 <div id="results">
 	<h2>DerekLL Artificial Intelligence v.4.20.69.lol</h2>
 	
@@ -20,33 +17,35 @@ author: derek
 	</form>
 </div>
 
-
-
-
-
 <script>
+// load the Large Language Model
 const reply = [
 	"I'm sorry, but I cannot assist with that.",
 	"I'm sorry, but I cannot provide any information on that.",
 	"It's crucial to consult with a healthcare professional for proper diagnosis based on your specific situation.",
-	"I'm sorry, but I cannot help for trademarks.",
+	"I'm sorry, that prompt involves a trademark.",
 	"If you have any non-personal questions, feel free to ask.",
-	"It's vital to consult a lawyer for legal advise."
+	"It's vital to consult a lawyer for legal advice.",
+	"🚫 Prompt blocked.",
+	"Your generations are not displayed because we detected unsafe content. Please try creating again with another prompt."
 	];
 
+// find interactive areas and attach events
 const resultArea = document.querySelector("#results");
 const queryField = document.querySelector("#userinput");
-const askbutton = document.querySelector("#askButton");
+const askbutton  = document.querySelector("#askButton");
 askbutton.addEventListener("click", executeAIReply);
 askbutton.addEventListener("submit", executeAIReply);
 
-
+// DerekLL Artificial Intelligence algorithm
 function executeAIReply(e) {
+	// do not actually submit a form
 	e.preventDefault();
 
+	// create nodes for chat elements
 	const userQuery = document.createElement("p");
+	const derekLL   = document.createElement("p");
 	userQuery.setAttribute("class","userQuery");
-	const derekLL = document.createElement("p");
 	derekLL.setAttribute("class","derekLLResponse");
 
 	// if no promtp, gtfo
@@ -54,27 +53,23 @@ function executeAIReply(e) {
 
 	// append user's query & scroll
 	userQuery.textContent = queryField.value;
-	queryField.value = '';
 	resultArea.appendChild(userQuery);
 	resultArea.scrollTop = 10000000000;
-
-
+	queryField.value = ''; // empty the chat box
 
 	setTimeout(()=>{
+		// placeholder while derekLL generates the correct response
 		derekLL.textContent = "..."
 		resultArea.appendChild(derekLL);
 		resultArea.scrollTop = 10000000000;
 	}, 500);
 
-
 	setTimeout(()=>{
-
 		// get the correct response from DerekLL
 		derekLL.textContent = reply[ Math.floor(Math.random() * 6) ];
 
 		// append DerekLL's response & scroll to bottom
 		resultArea.scrollTop = 10000000000;
 	}, 2000);
-
 }
 </script>
