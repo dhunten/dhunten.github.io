@@ -175,8 +175,14 @@ button {
     border-radius: 0 0 5px 5px;
 }
 
-#userinput { flex: 4 }
-#askButton { flex: 1; margin: 0 0 0 12px; }
+#userinput { 
+    flex: 4; 
+    padding: 16px; 
+}
+#askButton { 
+    flex: 1; 
+    margin: 0 0 0 12px;
+}
 
 #results {
     overflow-y: scroll;
