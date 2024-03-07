@@ -160,7 +160,7 @@ button {
 
 .warning {
     display: flex;
-    background: #d62a00bf;
+    background: #FF003D;
     padding: 20px;
     border-radius: 5px;
     margin: 20px 0;
@@ -179,8 +179,8 @@ button {
     left: 0;
 }
 
-#userinput { flex: 4; padding: 12px; }
-#askButton { flex: 1; margin: 0 0 0 12px; }
+input#userinput { flex: 4; padding: 12px; }
+input#askButton { flex: 1; margin: 0 0 0 12px; }
 
 #results {
     overflow-y: scroll;
@@ -214,10 +214,16 @@ button {
     font-size: 16px;
     font-weight: bold;
     padding: 6px 0 2px;
+    color: #ccc;
 }
 
 ::-webkit-scrollbar { width: 6px; }
 ::-webkit-scrollbar-thumb {
     background: #00000024;
     border-radius: 10px;
+}
+
+.query input {
+  font: 18px / 1.407930849028349082349082349230472 menlo, terminal, monospace;
+  font-family: 'Rubik', sans-serif;
 }
