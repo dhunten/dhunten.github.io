@@ -5,8 +5,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <style type="text/css">
             body {
-                background: black;
-                color: #eee;
+                background: #111;
+                color: #ddd;
                 margin: 0;
                 /* text-align: center; */
                 font-family: sans-serif;
@@ -37,11 +37,16 @@
                 margin: 16px;
             }
 
+            .togglegroup {
+                margin: 16px;
+            }
+
             label {
                 display: block;
                 background: rgba(255,255,255,0.1);
-                padding: 8px;
+                padding: 8px 12px;
                 margin: 8px 0;
+                border-radius: 420px;
             }
             input {
                 margin-right: 8px;
@@ -86,8 +91,7 @@
             <div id="key"></div>
         </div>
         <div class="instructions">Choose the layers you so desire, then take a screenshot.</div>
-        <fieldset onClick="setLayers()">
-            <legend>Toggle:</legend>
+        <div class="togglegroup" onClick="setLayers()">
             <label for="gridcheck"><input type="checkbox" id="gridcheck" checked/>Grid</label>
             <label for="keycheck"><input type="checkbox" id="keycheck" checked/>Key</label>
             <label for="poicheck"><input type="checkbox" id="poicheck" checked/>Places of Interest</label>
@@ -95,7 +99,7 @@
             <label for="sidewalkscheck"><input type="checkbox" id="sidewalkscheck" checked/>Sidewalks</label>
             <label for="shadecheck"><input type="checkbox" id="shadecheck" checked/>Shade</label>
             <label for="elevationcheck"><input type="checkbox" id="elevationcheck" checked/>Elevation</label>
-        </fieldset>
+        </div>
 
     </body>
 </html>
