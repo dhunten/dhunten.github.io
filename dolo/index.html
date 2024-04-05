@@ -12,18 +12,22 @@
                 font-family: sans-serif;
             }
             .dolo {
-                position: relative;
+                position: fixed;
                 background: url("images/base.png");
-                width: 100%;
-                aspect-ratio: 535 / 300;
+                background-size: contain;
+                background-repeat: no-repeat;
+                background-position: center;
+                top: 0; right: 0; bottom: 0; left: 0;
             }
             .dolo > div {
-                position:absolute;
+                position: absolute;
                 left: 0;
                 top: 0;
                 width: 100%;
                 height: 100%;
-                background-size: cover;
+                background-size: contain;
+                background-repeat: no-repeat;
+                background-position: center;
             }
             #key { background-image: url("images/key.png"); }
             #poi { background-image: url("images/poi.png"); }
@@ -33,33 +37,53 @@
             #elevation { background-image: url("images/elevation.png"); }
             #grid { background-image: url("images/grid.png"); }
 
-            .instructions, fieldset {
+            div.optionstoggle {
+                padding: 20px;
+                width: 20px;
+                height: 20px;
+            }
+
+            #options {
+                position: fixed;
+                right: 0; bottom: 0; left: 0;
+                background: #222;
+            }
+
+            .closeheader {
                 margin: 16px;
             }
 
             .togglegroup {
                 margin: 16px;
+                display: flex;
+                flex-wrap: wrap;
+                flex-direction: row;
+                gap: 8px;
             }
 
             label {
                 display: block;
-                background: rgba(255,255,255,0.1);
                 padding: 8px 12px;
-                margin: 8px 0;
                 border-radius: 420px;
+                border: 1px solid #ffffff11;
             }
             input {
-                margin-right: 8px;
+                display: none;
+            }
+
+            label:has(input:checked) {
+                background: #ffffff11;
             }
         </style>
         <script>
             function toggleLayer(id) {
-                if (document.getElementById(id).style.display == 'none') {
-                    document.getElementById(id).style.display = 'block';
+                if (document.querySelector(id).style.display == 'none') {
+                    document.querySelector(id).style.display = 'block';
                 } else {
-                    document.getElementById(id).style.display = 'none';
+                    document.querySelector(id).style.display = 'none';
                 }
             }
+
             function setLayers() {
                 const layerGrid = document.querySelector("#gridcheck");
                 const layerKey = document.querySelector("#keycheck");
@@ -78,6 +102,11 @@
                 document.querySelector("#elevation").style.display  = (layerElevation.checked   ? "block" : "none");
             }
 
+            function toggleOptions() {
+                toggleLayer("#options");
+            }
+
+
             </script>
     </head>
     <body>
@@ -89,16 +118,20 @@
             <div id="grid"></div>
             <div id="poi"></div>
             <div id="key"></div>
+            <div class="optionstoggle" onClick="toggleOptions()">⚙️</div>
         </div>
-        <div class="instructions">Choose the layers you so desire, then take a screenshot.</div>
-        <div class="togglegroup" onClick="setLayers()">
-            <label for="gridcheck"><input type="checkbox" id="gridcheck" checked/>Grid</label>
-            <label for="keycheck"><input type="checkbox" id="keycheck" checked/>Key</label>
-            <label for="poicheck"><input type="checkbox" id="poicheck" checked/>Places of Interest</label>
-            <label for="itemscheck"><input type="checkbox" id="itemscheck" checked/>Trees and Benches</label>
-            <label for="sidewalkscheck"><input type="checkbox" id="sidewalkscheck" checked/>Sidewalks</label>
-            <label for="shadecheck"><input type="checkbox" id="shadecheck" checked/>Shade</label>
-            <label for="elevationcheck"><input type="checkbox" id="elevationcheck" checked/>Elevation</label>
+        <div id="options" style="display: none;">
+            
+            <div class="closeheader" onClick="toggleOptions()">❌</div>
+            <div class="togglegroup" onClick="setLayers()">
+                <label for="poicheck"><input type="checkbox" id="poicheck" checked/>🚻 🚌</label>
+                <label for="itemscheck"><input type="checkbox" id="itemscheck" checked/>🌳 🪑</label>
+                <label for="sidewalkscheck"><input type="checkbox" id="sidewalkscheck" checked/>👟 Sidewalks</label>
+                <label for="gridcheck"><input type="checkbox" id="gridcheck" checked/>🌐 Grid</label>
+                <label for="shadecheck"><input type="checkbox" id="shadecheck"/>🌄 Shade</label>
+                <label for="elevationcheck"><input type="checkbox" id="elevationcheck"/>⛰️ Elevation</label>
+                <label for="keycheck"><input type="checkbox" id="keycheck"/>🔑 Key</label>
+            </div>
         </div>
 
     </body>
