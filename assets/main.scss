@@ -170,17 +170,36 @@ button {
 }
 .query {
     display: flex;
-    background: black;
+    background: #333;
     padding: 10px;
-    border-radius: 0 0 5px 5px;
+    border-radius: 5px;
     position: fixed;
     bottom: 0;
     right: 0;
     left: 0;
+    flex-direction: row;
+    align-items: center;
 }
 
-input#userinput { flex: 4; padding: 12px; }
-input#askButton { flex: 1; margin: 0 0 0 12px; }
+input#userinput { 
+    flex: 1; 
+    padding: 10px; 
+    border: none; 
+    border-radius: 5px; 
+    margin-right: 10px; 
+    background: #444; 
+    color: white; 
+}
+input#askButton { 
+    flex: 1; 
+    margin: 0 0 0 12px; 
+    padding: 10px 20px; 
+    border: none; 
+    border-radius: 5px; 
+    background: #E91E63; 
+    color: white; 
+    cursor: pointer; 
+}
 
 #results {
     overflow-y: scroll;
@@ -193,6 +212,8 @@ input#askButton { flex: 1; margin: 0 0 0 12px; }
     left: 0;
     right: 0;
     bottom: 0;
+    max-width: 600px;
+    margin: 0 auto;
 }
 
 .userQuery {
