@@ -155,37 +155,49 @@ button {
 [hidden] { display: none !important; }
 
 
+.fresh-body {
+  background: #111;
+}
 
 .fresh-page-content {
-    position: fixed;
-    top: 0;
-    right: 0;
-    left: 0;
-    bottom: 0;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
 }
 
+.ai-container {
+  position: relative;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background: #222;
+  border-radius: 10px;
+}
 
 .warning {
-    display: flex;
-    background: #FF003D;
-    padding: 20px;
-    border-radius: 5px;
-    margin: 20px 0;
-    gap: 20px;
-    text-align: left;
-    font-size: 14px;
+  display: flex;
+  background: #ff003c2e;
+  color: #eee
+  padding: 20px;
+  border-radius: 5px;
+  margin: 20px 0;
+  gap: 20px;
+  text-align: left;
+  font-size: 14px;
 }
 .query {
-    display: flex;
-    background: #333;
-    border-radius: 103.0px;
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    left: 0;
-    flex-direction: row;
-    align-items: center;
-    margin: 20px;
+  display: flex;
+  background: #333;
+  border-radius: 103.0px;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  flex-direction: row;
+  align-items: center;
+  margin: 10px;
 }
 
 input#userinput { 
@@ -196,60 +208,56 @@ input#userinput {
   background: transparent;
   color: white;
 
-  :focus-visible {
+  &:focus-visible {
     outline: none;
   }
 }
 
 button#askButton { 
-    flex: 0;
-    padding: 0;
-    border: none;
-    border-radius: 666px;
-    cursor: pointer;
+  flex: 0;
+  padding: 0;
+  margin: 0;
+  border: none;
+  border-radius: 666px;
+  cursor: pointer;
 }
 
 #results {
-    overflow-y: scroll;
-    text-align: left;
-    background: #111;
-    padding: 10px 10px 40px;
-    border-radius: 5px 5px 0 0;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    max-width: 600px;
-    margin: 0 auto;
+  overflow-y: scroll;
+  text-align: left;
+  background: #111;
+  padding: 10px 10px 40px;
+  border-radius: 5px;
+  max-height: 400px;
+  margin-bottom: 20px;
 }
 
 .userQuery {
-    margin-top: 20px;
-    padding-left: 55px;
-    background: url("/assets/you.png") no-repeat;
-    background-size: 42px;
+  margin-top: 20px;
+  padding-left: 55px;
+  background: url("/assets/you.png") no-repeat;
+  background-size: 42px;
 }
 .derekLLResponse {
-    padding-left: 55px;
-    background: url("/assets/derekll.png") no-repeat;
-    background-size: 42px;
+  padding-left: 55px;
+  background: url("/assets/derekll.png") no-repeat;
+  background-size: 42px;
 }
 
 .userQuery:before { content: 'You'; }
 .derekLLResponse:before { content: 'DerekLL'; }
 .userQuery:before, .derekLLResponse:before {
-    display: block;
-    font-size: 16px;
-    font-weight: bold;
-    padding: 6px 0 2px;
-    color: #ccc;
+  display: block;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 6px 0 2px;
+  color: #ccc;
 }
 
 ::-webkit-scrollbar { width: 6px; }
 ::-webkit-scrollbar-thumb {
-    background: #00000024;
-    border-radius: 10px;
+  background: #00000024;
+  border-radius: 10px;
 }
 
 .query input {
