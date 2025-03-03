@@ -178,7 +178,6 @@ button {
 .query {
     display: flex;
     background: #333;
-    padding: 10px;
     border-radius: 103.0px;
     position: absolute;
     bottom: 0;
@@ -193,10 +192,13 @@ input#userinput {
   flex: 1;
   padding: 10px;
   border: none;
-  border-radius: 471.3px;
-  margin-right: 10px;
+  margin-left: 10px;
   background: transparent;
   color: white;
+
+  :focus-visible {
+    outline: none;
+  }
 }
 
 button#askButton { 
