@@ -157,7 +157,11 @@ button {
 
 
 .fresh-page-content {
-    background: #111;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
 }
 
 
@@ -194,19 +198,13 @@ input#userinput {
   background: transparent;
   color: white;
 }
-input#askButton { 
+
+button#askButton { 
     flex: 0;
-    margin: 0 0 0 12px;
-    padding: 10px 20px;
+    padding: 0;
     border: none;
     border-radius: 666px;
-    background: #E91E63;
-    color: white;
     cursor: pointer;
-
-    .arrow {
-      fill:white;
-    }
 }
 
 #results {
