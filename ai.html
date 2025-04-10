@@ -94,21 +94,21 @@ h2 {
 }
 
 .derekLLResponse {
-	background-color: #3a3a3a;
+	background-color: #202020;
 	color: #e0e0e0;
 	border-bottom-left-radius: 4px;
 }
 
-/* Styling for word fade-in effect */
 .derekLLResponse .word {
     opacity: 0;
-    transition: opacity 0.3s ease-in-out; /* Adjust timing as needed */
+    color: white; 
+    transition: color 0.6s ease-in-out 0.3s, opacity 0.3s ease-in-out;
 }
 
 .derekLLResponse .word.visible {
     opacity: 1;
+    color: #ccc; 
 }
-/* End word fade-in styles */
 
 .query {
 	display: flex;
@@ -196,7 +196,6 @@ h2 {
 <div id="results">
 	<div class="warning">
 		<p><b>Ask away</b> DerekGPT 42o can answer all your desires, help you learn anything in the world, write nerdy code stuff, and so much more!</p>
-		<p><b>Check your facts</b> While I have safeguards, DrkLL will usually give you information. Be real with youreself and others.</p>
 	</div>
 </div>
 <form class="query">
