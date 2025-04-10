@@ -1,20 +1,195 @@
----
-layout: fresh
-title: "Department of Artificial Intelligence"
-author: derek
----
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Department of Artificial Intelligence</title>
+<style>
+body {
+	font-family: sans-serif;
+	margin: 0;
+	background-color: #121212;
+	color: #e0e0e0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 100vh;
+}
 
+.ai-container {
+	width: 90%;
+	max-width: 700px;
+	height: 80vh;
+	display: flex;
+	flex-direction: column;
+	overflow: hidden;
+}
+
+h2 {
+	text-align: center;
+	padding: 15px 15px 0;
+	margin: 0;
+	font-size: 1.2em;
+	color: #e0e0e0;
+}
+
+#results {
+	flex-grow: 1;
+	padding: 20px 0;
+	overflow-y: auto;
+	display: flex;
+	flex-direction: column;
+	gap: 15px;
+}
+
+.chatMessage {
+	display: flex;
+	align-items: flex-end;
+	gap: 10px;
+}
+
+.userMessage {
+	justify-content: flex-end;
+}
+
+.aiMessage {
+	justify-content: flex-start;
+}
+
+.avatar {
+	width: 32px;
+	height: 32px;
+	border-radius: 50%;
+	flex-shrink: 0;
+	margin-top: 2px;
+}
+
+.warning {
+	background-color: #342a00;
+	color: #ffeeba;
+	border-radius: 20px;
+	padding: 10px 15px;
+	margin-bottom: 15px;
+}
+
+.warning > p {
+	margin: 6px 0;
+	font-size: 14px;
+	line-height: 1.4;
+}
+
+.userQuery, .derekLLResponse {
+	padding: 10px 15px;
+	margin: 0;
+	border-radius: 18px;
+	max-width: calc(75% - 42px);
+	line-height: 1.4;
+	word-wrap: break-word;
+}
+
+.userQuery {
+	background-color: #D6005B;
+	color: white;
+	border-bottom-right-radius: 4px;
+}
+
+.derekLLResponse {
+	background-color: #3a3a3a;
+	color: #e0e0e0;
+	border-bottom-left-radius: 4px;
+}
+
+.query {
+	display: flex;
+	align-items: flex-end;
+	padding: 15px;
+	background-color: #2c2c2c;
+	border-radius: 30px;
+	min-height: 100px;
+}
+
+#userinput {
+	flex-grow: 1;
+	padding: 10px 15px;
+	border: 0;
+	border-radius: 20px;
+	margin-right: 10px;
+	font-size: 1em;
+	background-color: transparent;
+	color: #e0e0e0;
+	resize: none;
+	overflow-y: hidden;
+	font-family: sans-serif;
+	line-height: 1.4;
+    box-sizing: border-box;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    align-self: stretch;
+}
+
+#askButton {
+	background-color: #D6005B;
+	border: none;
+	border-radius: 50%;
+	width: 32px;
+	height: 32px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	cursor: pointer;
+	padding: 0;
+	flex-shrink: 0;
+    align-self: flex-end;
+}
+
+#askButton:disabled {
+    background-color: #555; /* Greyed-out background */
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+#askButton:disabled:hover {
+    background-color: #555; /* Keep disabled background on hover */
+}
+
+#askButton:hover {
+	background-color: #e80064;
+}
+
+#askButton svg {
+    fill: #e0e0e0;
+}
+
+#results::-webkit-scrollbar {
+  width: 8px;
+}
+
+#results::-webkit-scrollbar-track {
+  background: #2c2c2c;
+}
+
+#results::-webkit-scrollbar-thumb {
+  background: #555;
+  border-radius: 4px;
+}
+
+#results::-webkit-scrollbar-thumb:hover {
+  background: #777;
+}
+</style>
+</head>
+<body>
 
 <div class="ai-container">
 <h2>DerekGPT 42o</h2>
 <div id="results">
 	<div class="warning">
-		<div><b>Ask away</b> DrkLL can answer all your desires, help you learn anything in the world, write nerdy code stuff, and so much more!</div>
-		<div><b>Check your facts</b> While I have safeguards, DrkLL will usually give you information. Be real with youreself and others.</div>
+		<p><b>Ask away</b> DerekGPT 42o can answer all your desires, help you learn anything in the world, write nerdy code stuff, and so much more!</p>
+		<p><b>Check your facts</b> While I have safeguards, DrkLL will usually give you information. Be real with youreself and others.</p>
 	</div>
 </div>
 <form class="query">
-	<input type="text" id="userinput" placeholder="Ask everything..."></input>
+	<textarea id="userinput" placeholder="Ask everything..." rows="1"></textarea>
 	<button type="submit" id="askButton" for="userinput" value="">
 	<svg width="48" height="48" viewBox="0 0 32 32" fill="white" xmlns="http://www.w3.org/2000/svg" class="arrow">
 		<path fill-rule="evenodd" clip-rule="evenodd" d="M15.1918 8.90615C15.6381 8.45983 16.3618 8.45983 16.8081 8.90615L21.9509 14.049C22.3972 14.4953 22.3972 15.2189 21.9509 15.6652C21.5046 16.1116 20.781 16.1116 20.3347 15.6652L17.1428 12.4734V22.2857C17.1428 22.9169 16.6311 23.4286 15.9999 23.4286C15.3688 23.4286 14.8571 22.9169 14.8571 22.2857V12.4734L11.6652 15.6652C11.2189 16.1116 10.4953 16.1116 10.049 15.6652C9.60265 15.2189 9.60265 14.4953 10.049 14.049L15.1918 8.90615Z"></path>
@@ -41,42 +216,102 @@ const reply = [
 const resultArea = document.querySelector("#results");
 const queryField = document.querySelector("#userinput");
 const askbutton  = document.querySelector("#askButton");
+
+// Function to update button state based on textarea content
+function updateButtonState() {
+    askbutton.disabled = queryField.value.trim() === '';
+}
+
+function autoGrowTextarea(textarea) {
+    textarea.style.height = 'auto'; // Reset height first
+    // Only set explicit height if content exceeds the initial stretched height
+    if (textarea.scrollHeight > textarea.clientHeight) {
+        textarea.style.height = Math.min(textarea.scrollHeight, 150) + 'px';
+    } else {
+        // If content fits, let CSS 'align-self: stretch' control the height
+        textarea.style.height = 'auto'; // or revert to a specific base height if needed
+    }
+}
+
 askbutton.addEventListener("click", executeAIReply);
-askbutton.addEventListener("submit", executeAIReply);
+queryField.addEventListener('input', () => {
+    autoGrowTextarea(queryField);
+    updateButtonState(); // Update button state on input
+}, false);
+queryField.addEventListener('keydown', (e) => {
+    // Submit on Enter key press, unless Shift is held
+    if (e.key === 'Enter' && !e.shiftKey) {
+        e.preventDefault(); // Prevent default newline behavior
+        askbutton.click(); // Trigger the click event on the button
+    }
+});
+
+// Initial check on page load
+updateButtonState();
 
 // DrkLL Artificial Intelligence algorithm
 function executeAIReply(e) {
 	// do not actually submit a form
 	e.preventDefault();
 
+    // If button is disabled (e.g., user somehow bypassed it), do nothing
+    if (askbutton.disabled) return;
+
+    // Disable button immediately to prevent double submission
+    askbutton.disabled = true;
+
 	// create nodes for chat elements
+	const userQueryContainer = document.createElement("div");
 	const userQuery = document.createElement("p");
+	const userAvatar = document.createElement("img");
+	const derekLLContainer = document.createElement("div");
 	const derekLL   = document.createElement("p");
+	const derekLLAvatar = document.createElement("img");
+
+	userQueryContainer.setAttribute("class","chatMessage userMessage");
 	userQuery.setAttribute("class","userQuery");
+	userAvatar.setAttribute("class", "avatar");
+	userAvatar.setAttribute("src", "assets/you.png");
+	userAvatar.setAttribute("alt", "User Avatar");
+
+	derekLLContainer.setAttribute("class","chatMessage aiMessage");
 	derekLL.setAttribute("class","derekLLResponse");
+	derekLLAvatar.setAttribute("class", "avatar");
+	derekLLAvatar.setAttribute("src", "assets/derekll.png"); // Assuming derekll.png is in the same directory as ai.html or accessible via relative path
+	derekLLAvatar.setAttribute("alt", "DerekLL Avatar");
 
 	// if no promtp, gtfo
 	if (queryField.value == '') return;
 
 	// append user's query & scroll
 	userQuery.textContent = queryField.value;
-	resultArea.appendChild(userQuery);
+	userQueryContainer.appendChild(userQuery);
+	userQueryContainer.appendChild(userAvatar); // Add avatar after bubble for user
+	resultArea.appendChild(userQueryContainer);
 	resultArea.scrollTop = 10000000000;
 	queryField.value = ''; // empty the chat box
+    autoGrowTextarea(queryField); // Reset textarea height after sending
+    queryField.style.height = 'auto';
 
 	setTimeout(()=>{
 		// placeholder while derekLL generates the correct response
 		derekLL.textContent = "..."
-		resultArea.appendChild(derekLL);
+		derekLLContainer.appendChild(derekLLAvatar); // Add avatar before bubble for AI
+		derekLLContainer.appendChild(derekLL);
+		resultArea.appendChild(derekLLContainer);
 		resultArea.scrollTop = 10000000000;
 	}, 500);
 
 	setTimeout(()=>{
 		// get the correct response from DerekLL
-		derekLL.textContent = reply[ Math.floor(Math.random() * 6) ];
+		derekLL.textContent = reply[ Math.floor(Math.random() * reply.length) ]; // Use reply.length
 
-		// append DerekLL's response & scroll to bottom
+		// Update content of existing element
+		// resultArea.appendChild(derekLLContainer); // Already appended
 		resultArea.scrollTop = 10000000000;
 	}, 2000);
 }
 </script>
+
+</body>
+</html>
