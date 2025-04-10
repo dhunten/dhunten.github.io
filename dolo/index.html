@@ -47,7 +47,16 @@
 
             #pin {
                 position: fixed;
-                left: -69px;
+                display: none;
+                width: 32px;
+                height: 48px;
+            }
+
+            #pin img {
+                display: block;
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
             }
 
             #options {
@@ -125,10 +134,10 @@
             <div id="grid"></div>
             <div id="poi"></div>
             <div id="key"></div>
+            <div id="pin"><img src="/assets/pointer.gif" alt="pointer"></div>
         </div>
 
         <div class="optionstoggle" onClick="toggleOptions()">⚙️</div>
-        <div id="pin">📌</div>
 
         <div id="options" style="display: none;">
             <div class="closeheader" onClick="toggleOptions()">❌</div>
@@ -149,19 +158,26 @@
 
     <script>
         var divName = 'pin';
-        var offsetX = 0;
-        var offsetY = -document.getElementById(divName).clientHeight;
-        
         function mouseX(e) {if (!e) e = window.event; if (e.pageX) return e.pageX; else if (e.clientX)return e.clientX + (document.documentElement.scrollLeft ?  document.documentElement.scrollLeft : document.body.scrollLeft); else return 0;}
         function mouseY(e) {if (!e) e = window.event; if (e.pageY) return e.pageY; else if (e.clientY)return e.clientY + (document.documentElement.scrollTop ? document.documentElement.scrollTop : document.body.scrollTop); else return 0;}
         
         function follow(e) {
-            var obj = document.getElementById(divName).style;
-            boundX = mouseX(e)+offsetX;
-            boundY = mouseY(e)+offsetY;
+            var pinElement = document.getElementById(divName);
+            var obj = pinElement.style;
+            var pinWidth = pinElement.offsetWidth || 32;
 
-            obj.left = boundX + 'px';
-            obj.top = boundY + 'px'; 
+            var targetX_pixels = mouseX(e) - (pinWidth / 2);
+            var targetY_pixels = mouseY(e);
+
+            var viewportWidth = window.innerWidth;
+            var viewportHeight = window.innerHeight;
+
+            var leftPercentage = (targetX_pixels / viewportWidth) * 100;
+            var topPercentage = (targetY_pixels / viewportHeight) * 100;
+
+            obj.left = leftPercentage + '%';
+            obj.top = topPercentage + '%';
+            obj.display = 'block';
         }
         document.querySelector(".dolo").onclick = follow;
       </script>
