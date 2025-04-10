@@ -99,6 +99,17 @@ h2 {
 	border-bottom-left-radius: 4px;
 }
 
+/* Styling for word fade-in effect */
+.derekLLResponse .word {
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out; /* Adjust timing as needed */
+}
+
+.derekLLResponse .word.visible {
+    opacity: 1;
+}
+/* End word fade-in styles */
+
 .query {
 	display: flex;
 	align-items: flex-end;
@@ -277,21 +288,22 @@ function executeAIReply(e) {
 	derekLLContainer.setAttribute("class","chatMessage aiMessage");
 	derekLL.setAttribute("class","derekLLResponse");
 	derekLLAvatar.setAttribute("class", "avatar");
-	derekLLAvatar.setAttribute("src", "assets/derekll.png"); // Assuming derekll.png is in the same directory as ai.html or accessible via relative path
+	derekLLAvatar.setAttribute("src", "assets/derekll.png");
 	derekLLAvatar.setAttribute("alt", "DerekLL Avatar");
 
-	// if no promtp, gtfo
-	if (queryField.value == '') return;
+	// if no promtp, gtfo - This check is technically redundant now due to button disabling
+	// if (queryField.value.trim() == '') return;
 
 	// append user's query & scroll
 	userQuery.textContent = queryField.value;
 	userQueryContainer.appendChild(userQuery);
 	userQueryContainer.appendChild(userAvatar); // Add avatar after bubble for user
 	resultArea.appendChild(userQueryContainer);
-	resultArea.scrollTop = 10000000000;
+	resultArea.scrollTop = resultArea.scrollHeight; // Scroll to bottom
 	queryField.value = ''; // empty the chat box
     autoGrowTextarea(queryField); // Reset textarea height after sending
     queryField.style.height = 'auto';
+    // updateButtonState(); // Already disabled above
 
 	setTimeout(()=>{
 		// placeholder while derekLL generates the correct response
@@ -299,17 +311,50 @@ function executeAIReply(e) {
 		derekLLContainer.appendChild(derekLLAvatar); // Add avatar before bubble for AI
 		derekLLContainer.appendChild(derekLL);
 		resultArea.appendChild(derekLLContainer);
-		resultArea.scrollTop = 10000000000;
+		resultArea.scrollTop = resultArea.scrollHeight; // Scroll to show placeholder
 	}, 500);
 
 	setTimeout(()=>{
 		// get the correct response from DerekLL
-		derekLL.textContent = reply[ Math.floor(Math.random() * reply.length) ]; // Use reply.length
+		const fullReply = reply[ Math.floor(Math.random() * reply.length) ];
+        const words = fullReply.split(' ');
+        let wordIndex = 1; // Start from the second word for the typing effect
+        const typingSpeed = 150; // Milliseconds between words
 
-		// Update content of existing element
-		// resultArea.appendChild(derekLLContainer); // Already appended
-		resultArea.scrollTop = 10000000000;
-	}, 2000);
+        // Immediately replace "..." with the first word (if it exists)
+        derekLL.textContent = words.length > 0 ? words[0] + ' ' : '';
+        resultArea.scrollTop = resultArea.scrollHeight; // Scroll after adding first word
+
+        function typeWord() {
+            if (wordIndex < words.length) {
+                // Create span for the word
+                const wordSpan = document.createElement('span');
+                wordSpan.textContent = words[wordIndex];
+                wordSpan.classList.add('word'); // Add class for styling/transition
+                derekLL.appendChild(wordSpan);
+
+                // Add a space after the word
+                derekLL.appendChild(document.createTextNode(' '));
+
+                // Trigger the fade-in effect shortly after appending
+                setTimeout(() => {
+                    wordSpan.classList.add('visible');
+                }, 10); // Small delay
+
+                wordIndex++;
+                resultArea.scrollTop = resultArea.scrollHeight; // Scroll as text is added
+                setTimeout(typeWord, typingSpeed);
+            } else {
+                resultArea.scrollTop = resultArea.scrollHeight; // Final scroll
+            }
+        }
+
+        // Start the typing effect for the *rest* of the words (if any)
+        if (words.length > 1) {
+            setTimeout(typeWord, typingSpeed);
+        }
+
+	}, 2000); // Start generating response after 2 seconds
 }
 </script>
 
